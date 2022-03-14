@@ -3,23 +3,18 @@ package com.rvmagrini.springjpa.service;
 import com.rvmagrini.springjpa.model.Registration;
 import com.rvmagrini.springjpa.repository.RegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
+import javax.transaction.Transactional;
 
-@Component
+@Service
 public class RegistrationServiceImpl implements RegistrationService {
 
     @Autowired
     private RegistrationRepository registrationRepository;
 
-    @Override
-    public List<Registration> getRegistrations() {
-        return registrationRepository.findAll();
-    }
-
-    @Override
-    public Registration saveRegistration(Registration registration) {
+    @Transactional
+    public Registration addRegistration(Registration registration) {
         return registrationRepository.save(registration);
     }
 }

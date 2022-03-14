@@ -1,7 +1,7 @@
 package com.rvmagrini.springjpa.controller;
 
-import com.rvmagrini.springjpa.model.Registration;
-import com.rvmagrini.springjpa.service.RegistrationService;
+import com.rvmagrini.springjpa.model.User;
+import com.rvmagrini.springjpa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -12,24 +12,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 
 @Controller
-public class RegistrationController {
+public class UserController {
 
     @Autowired
-    private RegistrationService registrationService;
+    private UserService userService;
 
-    @GetMapping("registration")
-    public String getRegistration(@ModelAttribute("registration") Registration registration) {
-        return "registration";
+    @GetMapping("user")
+    public String getUser(@ModelAttribute("user") User user) {
+        return "user";
     }
 
-    @PostMapping("registration")
-    public String addRegistration(@Valid @ModelAttribute("registration") Registration registration,
+    @PostMapping("user")
+    public String addUser(@Valid @ModelAttribute("user") User user,
                                   BindingResult result) {
         if (result.hasErrors()) {
             System.out.println("There were errors");
-            return "registration";
+            return "user";
         } else {
-            registrationService.addRegistration(registration);
+            userService.addUser(user);
         }
 
         return "redirect:";
