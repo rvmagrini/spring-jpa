@@ -5,3 +5,5 @@
 - [1.1] Create scaffold Application integrated to dockerized MySQL Database
 - [1.2] Implement and wire Controllers, Services, Repositories and JavaServer Pages
 
+### 2: RELATIONSHIPS
+- [2.1] Implement @ManyToOne and bind mandatory Course and Registration Services
