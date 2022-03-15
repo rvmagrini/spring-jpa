@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Repository
 public class RegistrationRepositoryImpl implements RegistrationRepository {
@@ -15,6 +16,13 @@ public class RegistrationRepositoryImpl implements RegistrationRepository {
     public Registration save(Registration registration) {
         entityManager.persist(registration);
         return registration;
+    }
+
+    public List<Registration> findAll() {
+        List<Registration> registrations = entityManager
+                .createQuery("Select r from Registration r").getResultList();
+
+        return registrations;
     }
 
 }

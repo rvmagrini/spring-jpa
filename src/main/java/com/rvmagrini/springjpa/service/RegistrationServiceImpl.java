@@ -33,4 +33,8 @@ public class RegistrationServiceImpl implements RegistrationService {
         return registration;
     }
 
+    public List<Registration> findAll() {
+        return registrationRepository.findAll();
+    }
+
 }

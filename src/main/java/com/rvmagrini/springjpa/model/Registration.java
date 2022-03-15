@@ -23,6 +23,7 @@ public class Registration {
     @NotEmpty
     private String name;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "registration",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)

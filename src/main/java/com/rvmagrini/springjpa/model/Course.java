@@ -22,6 +22,7 @@ public class Course {
     private String name;
     private String description;
 
+    @JsonBackReference
     @ManyToOne
     private Registration registration;
 

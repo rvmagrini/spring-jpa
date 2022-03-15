@@ -7,3 +7,6 @@
 
 ### 2: RELATIONSHIPS
 - [2.1] Implement @ManyToOne and bind mandatory Course and Registration Services
+
+### 3: QUERIES
+- [3.1] Retrieve list of Registrations using JPQL
