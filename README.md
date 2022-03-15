@@ -11,3 +11,4 @@
 ### 3: QUERIES
 - [3.1] Retrieve list of Registrations using JPQL
 - [3.2] Create Projection to get Registration Reports using JPQL
+- [3.3] Convert Registration Reports to use @NamedQuery

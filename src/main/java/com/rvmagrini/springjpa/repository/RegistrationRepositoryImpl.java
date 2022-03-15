@@ -27,13 +27,9 @@ public class RegistrationRepositoryImpl implements RegistrationRepository {
     }
 
     public List<RegistrationReport> findAllReports() {
-        String jpql = "Select new com.rvmagrini.springjpa.model.RegistrationReport" +
-                "(r.name, c.name, c.description) " +
-                "from Registration r, Course c " +
-                "where r.id = c.registration.id";
 
         List<RegistrationReport> registrationReports = entityManager
-                .createQuery(jpql).getResultList();
+                .createNamedQuery(Registration.REGISTRATION_REPORT).getResultList();
 
         return registrationReports;
     }
