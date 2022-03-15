@@ -1,6 +1,7 @@
 package com.rvmagrini.springjpa.controller;
 
 import com.rvmagrini.springjpa.model.Registration;
+import com.rvmagrini.springjpa.model.RegistrationReport;
 import com.rvmagrini.springjpa.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,12 @@ public class RegistrationController {
     public @ResponseBody List<Registration> getRegistrations() {
         List<Registration> registrations = registrationService.findAll();
         return registrations;
+    }
+
+    @GetMapping("registration-reports")
+    public @ResponseBody List<RegistrationReport> getRegistrationReports() {
+        List<RegistrationReport> registrationReports = registrationService.findAllReports();
+        return registrationReports;
     }
 
     @PostMapping("registration")

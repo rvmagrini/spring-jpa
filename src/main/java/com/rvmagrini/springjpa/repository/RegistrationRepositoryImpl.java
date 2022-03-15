@@ -1,6 +1,7 @@
 package com.rvmagrini.springjpa.repository;
 
 import com.rvmagrini.springjpa.model.Registration;
+import com.rvmagrini.springjpa.model.RegistrationReport;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -23,6 +24,18 @@ public class RegistrationRepositoryImpl implements RegistrationRepository {
                 .createQuery("Select r from Registration r").getResultList();
 
         return registrations;
+    }
+
+    public List<RegistrationReport> findAllReports() {
+        String jpql = "Select new com.rvmagrini.springjpa.model.RegistrationReport" +
+                "(r.name, c.name, c.description) " +
+                "from Registration r, Course c " +
+                "where r.id = c.registration.id";
+
+        List<RegistrationReport> registrationReports = entityManager
+                .createQuery(jpql).getResultList();
+
+        return registrationReports;
     }
 
 }

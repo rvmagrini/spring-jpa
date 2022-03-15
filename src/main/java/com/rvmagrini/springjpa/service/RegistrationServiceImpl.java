@@ -2,6 +2,7 @@ package com.rvmagrini.springjpa.service;
 
 import com.rvmagrini.springjpa.model.Course;
 import com.rvmagrini.springjpa.model.Registration;
+import com.rvmagrini.springjpa.model.RegistrationReport;
 import com.rvmagrini.springjpa.repository.CourseRepository;
 import com.rvmagrini.springjpa.repository.RegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,10 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     public List<Registration> findAll() {
         return registrationRepository.findAll();
+    }
+
+    public List<RegistrationReport> findAllReports() {
+        return registrationRepository.findAllReports();
     }
 
 }
